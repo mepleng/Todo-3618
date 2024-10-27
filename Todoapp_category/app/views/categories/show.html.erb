@@ -1,0 +1,21 @@
+<h1><%= @category.name %></h1>
+
+<h2>Tasks in this Category:</h2>
+<% if @tasks.any? %>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li>
+        <strong>Name:</strong> <%= task.name %> |
+        <strong>Status:</strong> <%= task.status %> |
+        <%= link_to 'Show', task_path(task) %> |
+        <%= link_to 'Edit', edit_task_path(task) %> |
+        <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No tasks found in this category.</p>
+<% end %>
+
+<%= link_to 'Edit Category', edit_category_path(@category) %> |
+<%= link_to 'Back to Categories', categories_path %>

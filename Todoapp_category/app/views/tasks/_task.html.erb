@@ -1,0 +1,19 @@
+<div id="<%= dom_id task %>">
+  <p>
+    <strong>Name:</strong>
+    <%= task.name %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <span class="badge <%= task.status == 1 ? 'bg-success' : 'bg-danger' %>">
+      <%= task.status == 1 ? 'Complete' : 'Incomplete' %>
+    </span>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= task.category.present? ? task.category.name : 'No Category' %>
+  </p>
+
+</div>
